@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+# The MIT License (MIT)
+
+# Copyright (c) 2019 Nobuyuki Tanabe
+
+# create Consumer object
+require 'oauth'
+
+USAGE = 'Usage: ruby get_access_token.rb <consumer key> <consumer secret>'
+
+SITE_URI          = 'https://www.hatena.com'
+REQUEST_TOKEN_URI = '/oauth/initiate?scope=read_public%2Cread_private%2Cwrite_public%2Cwrite_private'
+ACCESS_TOKEN_URI  = '/oauth/token'
+
+if ARGV.size != 2
+  warn USAGE
+  exit
+end
+
+consumer_key    = ARGV[0]
+consumer_secret = ARGV[1]
+consumer = OAuth::Consumer.new(consumer_key,
+                               consumer_secret,
+                               site: SITE_URI,
+                               request_token_url: REQUEST_TOKEN_URI,
+                               access_token_url: ACCESS_TOKEN_URI,
+                               oauth_callback: 'oob')
+
+request_token = consumer.get_request_token
+puts "Visit this website and get the oauth verifier: #{request_token.authorize_url}"
+print 'Enter the oauth verifier:'
+
+consumer.options.delete(:oauth_callback)
+oauth_verifier = STDIN.readline.chomp
+access_token = request_token.get_access_token(oauth_verifier: oauth_verifier)
+puts "Access token: #{access_token.token}"
+puts "Access token secret: #{access_token.secret}"
