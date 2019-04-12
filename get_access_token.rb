@@ -6,8 +6,7 @@
 # Copyright (c) 2019 Nobuyuki Tanabe
 
 # create Consumer object
-require 'oauth'
-
+# TODO: Should use values obtained from the configuratioin file instead of constants
 USAGE = 'Usage: ruby get_access_token.rb <consumer key> <consumer secret>'
 
 SITE_URI          = 'https://www.hatena.com'

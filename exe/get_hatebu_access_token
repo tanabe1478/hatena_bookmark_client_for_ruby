@@ -22,12 +22,7 @@ end
 
 consumer_key    = ARGV[0]
 consumer_secret = ARGV[1]
-consumer = OAuth::Consumer.new(consumer_key,
-                               consumer_secret,
-                               site: SITE_URI,
-                               request_token_url: REQUEST_TOKEN_URI,
-                               access_token_url: ACCESS_TOKEN_URI,
-                               oauth_callback: 'oob')
+consumer = OAuth::Consumer.new(consumer_key, consumer_secret, site: SITE_URI, request_token_url: REQUEST_TOKEN_URI, access_token_url: ACCESS_TOKEN_URI, oauth_callback: 'oob')
 
 request_token = consumer.get_request_token
 puts "Visit this website and get the oauth verifier: #{request_token.authorize_url}"
