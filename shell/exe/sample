@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'hatena_bookmark_client_for_ruby'
+
+puts HatenaBookmarkClientForRuby.greet
