@@ -14,8 +14,11 @@ RSpec.describe HatenaBookmarkClientForRuby do
   it "create new bookmark" do
     hash = {
       url: "http://developer.hatena.ne.jp/ja/documents/bookmark/apis/rest/bookmark#post_my_bookmark",
-      comment: "gemからhatebuした",
+      comment: "test",
     }
-    expect(@hatebu.create(hash).class).to eq(Net::HTTPUnauthorized)
+    mock = double("hatena bookmark client")
+    expect allow(mock).to receive(:create)
+    allow(@hatebu).to receive(:create).and_return(mock)
+    expect { @hatebu.create(hash) }.not_to raise_error
   end
 end
