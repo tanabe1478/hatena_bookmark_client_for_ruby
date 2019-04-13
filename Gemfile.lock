@@ -3,6 +3,7 @@ PATH
   specs:
     hatena_bookmark_client_for_ruby (0.1.0)
       crack
+      json
       oauth
 
 GEM
@@ -11,6 +12,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.3)
+    json (2.2.0)
     oauth (0.5.4)
     rake (10.5.0)
     rspec (3.8.0)

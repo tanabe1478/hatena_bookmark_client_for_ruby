@@ -20,6 +20,16 @@ module HatenaBookmarkClientForRuby
     def create(params)
       response = @access_token.post("http://api.b.hatena.ne.jp/1/my/bookmark", params)
     end
+
+    def delete(url)
+      encoded_url = CGI::escape(url)
+      response = @access_token.delete("http://api.b.hatena.ne.jp/1/my/bookmark?url=#{url}")
+    end
+
+    def get(url)
+      encoded_url = CGI::escape(url)
+      response = @access_token.get("http://api.b.hatena.ne.jp/1/my/bookmark?url=#{url}")
+    end
   end
 
   class Error < StandardError
