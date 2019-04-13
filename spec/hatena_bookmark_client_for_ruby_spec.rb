@@ -1,9 +1,21 @@
 RSpec.describe HatenaBookmarkClientForRuby do
+  before do
+    @hatebu = HatenaBookmarkClientForRuby::Bookmark.new(
+      consumer_key: "",
+      consumer_secret: "",
+      request_token: "",
+      request_secret: "",
+    )
+  end
   it "has a version number" do
     expect(HatenaBookmarkClientForRuby::VERSION).not_to be nil
   end
 
-  it "greet test" do
-    expect(HatenaBookmarkClientForRuby.greet).to eq("Hello")
+  it "create new bookmark" do
+    hash = {
+      url: "http://developer.hatena.ne.jp/ja/documents/bookmark/apis/rest/bookmark#post_my_bookmark",
+      comment: "gemからhatebuした",
+    }
+    expect(@hatebu.create(hash).class).to eq(Net::HTTPUnauthorized)
   end
 end
