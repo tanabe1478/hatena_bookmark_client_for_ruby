@@ -4,6 +4,8 @@ require "crack"
 
 module HatenaBookmarkClientForRuby
   class Bookmark
+    attr_accessor :access_token
+
     def initialize(params)
       consumer = OAuth::Consumer.new(
         params[:consumer_key],
@@ -18,30 +20,30 @@ module HatenaBookmarkClientForRuby
     end
 
     def create(params)
-      @access_token.post("http://api.b.hatena.ne.jp/1/my/bookmark", params)
+      access_token.post("http://api.b.hatena.ne.jp/1/my/bookmark", params)
     end
 
     def delete(url)
       encoded_url = CGI::escape(url)
-      @access_token.delete("http://api.b.hatena.ne.jp/1/my/bookmark?url=#{url}")
+      access_token.delete("http://api.b.hatena.ne.jp/1/my/bookmark?url=#{url}")
     end
 
     def get(url)
       encoded_url = CGI::escape(url)
-      @access_token.get("http://api.b.hatena.ne.jp/1/my/bookmark?url=#{url}")
+      access_token.get("http://api.b.hatena.ne.jp/1/my/bookmark?url=#{url}")
     end
 
     def user_tags()
-      @access_token.get("http://api.b.hatena.ne.jp/1/my/tags")
+      access_token.get("http://api.b.hatena.ne.jp/1/my/tags")
     end
 
     def entry(url)
       encoded_url = CGI::escape(url)
-      @access_token.get("http://api.b.hatena.ne.jp/1/entry?url=#{encoded_url}")
+      access_token.get("http://api.b.hatena.ne.jp/1/entry?url=#{encoded_url}")
     end
 
     def user()
-      @access_token.get("http://api.b.hatena.ne.jp/1/my")
+      access_token.get("http://api.b.hatena.ne.jp/1/my")
     end
   end
 
