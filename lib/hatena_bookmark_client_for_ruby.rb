@@ -3,7 +3,7 @@ require "oauth"
 require "crack"
 require "net/http"
 
-module HatenaBookmarkClientForRuby
+module HatenaBookmarkClient
   class BookmarkCount
     attr_accessor :urls
 

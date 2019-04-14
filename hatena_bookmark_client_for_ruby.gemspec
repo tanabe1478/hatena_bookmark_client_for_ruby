@@ -5,7 +5,7 @@ require "hatena_bookmark_client_for_ruby/version"
 
 Gem::Specification.new do |spec|
   spec.name = "hatena_bookmark_client_for_ruby"
-  spec.version = HatenaBookmarkClientForRuby::VERSION
+  spec.version = HatenaBookmarkClient::VERSION
   spec.authors = ["Nobuyuki Tanabe"]
   spec.email = ["tanabe.1478@gmail.com"]
 

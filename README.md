@@ -1,6 +1,6 @@
-# HatenaBookmarkClientForRuby
+# HatenaBookmarkClient
 
-`HatenaBookmarkClientForRuby` is simple Ruby networking library for Hatena bookmark Web API
+`HatenaBookmarkClient` is simple Ruby networking library for Hatena bookmark Web API
 
 ## Installation
 
@@ -13,7 +13,7 @@ gem  install hatena_ebookmark_client_for_ruby
 
 ```ruby
 require 'hatena_bookmark_client_for_ruby'
- hatebu = HatenaBookmarkClientForRuby::Bookmark.new(
+ hatebu = HatenaBookmarkClient::Bookmark.new(
       consumer_key: CONSUMER_KEY,
       consumer_secret: CONSUMER_SECRET,
       request_token: REQUEST_TOKEN,

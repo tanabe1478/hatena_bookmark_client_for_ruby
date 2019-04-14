@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hatena_bookmark_client_for_ruby (0.1.0)
+    hatena_bookmark_client_for_ruby (0.1.2)
       crack
       json
       oauth
