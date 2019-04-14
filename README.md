@@ -2,8 +2,6 @@
 
 `HatenaBookmarkClientForRuby` is simple Ruby networking library for Hatena bookmark Web API
 
-``
-
 ## Installation
 
 
