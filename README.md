@@ -1,28 +1,34 @@
 # HatenaBookmarkClientForRuby
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hatena_bookmark_client_for_ruby`. To experiment with that code, run `bin/console` for an interactive prompt.
+`HatenaBookmarkClientForRuby` is simple Ruby networking library for Hatena bookmark Web API
 
+``
 TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
-Add this line to your application's Gemfile:
 
-```ruby
-gem 'hatena_bookmark_client_for_ruby'
+```sh
+gem  install hatena_ebookmark_client_for_ruby
 ```
 
-And then execute:
+## Example
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install hatena_bookmark_client_for_ruby
-
-## Usage
-
-TODO: Write usage instructions here
+```ruby
+require 'hatena_bookmark_client_for_ruby'
+ hatebu = HatenaBookmarkClientForRuby::Bookmark.new(
+      consumer_key: CONSUMER_KEY,
+      consumer_secret: CONSUMER_SECRET,
+      request_token: REQUEST_TOKEN,
+      request_secret: REQUEST_SECRET,
+    )
+body = {
+      url: "http://developer.hatena.ne.jp/ja/documents/bookmark/apis/rest/bookmark#post_my_bookmark",
+      comment: "test",
+    }
+response = hatebu.create(body)
+puts response.body
+```
 
 ## Development
 
