@@ -6,7 +6,7 @@
 
 
 ```sh
-gem  install hatena_ebookmark_client_for_ruby
+gem  install hatena_bookmark_client_for_ruby
 ```
 
 ## Example
